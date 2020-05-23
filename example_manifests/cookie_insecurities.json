@@ -1,0 +1,62 @@
+{
+  "max-age": 3600,
+  "csp-policies": {
+    "secure_csp": "script-src 'self'"
+  },
+  "hsts-policies": {
+    "secure_hsts": {
+      "max-age": 31536000,
+      "includeSubDomains": true
+    }
+  },
+  "hostcookie-policies": {
+    "secure_hostcookies": {
+      "<default>": {
+        "secure": true,
+        "httponly": true,
+        "samesite": "lax"
+      },
+      "session": {
+        "secure": true,
+        "httponly": true,
+        "samesite": "Strict"
+      }
+    },
+    "optout_session_cookie": {
+      "<default>": {
+        "secure": true,
+        "httponly": false,
+        "samesite": "Lax"
+      },
+      "session": {
+        "secure": true,
+        "httponly": true,
+        "samesite": "None"
+      }
+    }
+  },
+  "domaincookie-policies": {
+    "domain.com": {
+      "<default>": {
+        "secure": true,
+        "httponly": true,
+        "samesite": "lax"
+      },
+      "CID": {
+        "secure": true,
+        "httponly": false,
+        "samesite": "lax"
+      }
+    }
+  },
+  "policies": {
+    "policy_default": {
+      "csp": "secure_csp",
+      "hsts": "secure_hsts",
+      "hostcookie": "secure_hostcookies"
+    }
+  },
+  "default_policies": {
+    "domain.com": "policy_default"
+  }
+}
